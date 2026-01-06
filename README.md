@@ -143,3 +143,5 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 👨‍💻 Author
 
 Course Design Project - Huffman Encoder and Decoder
+Md Myan Uddin 
+NJUPT
