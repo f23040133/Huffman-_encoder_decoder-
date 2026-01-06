@@ -179,7 +179,7 @@ export function MenuBar({
                 <li>Supported formats: .txt, .md, .html, .css, .js, .json, .xml, .csv</li>
                 <li>Click <strong className="text-purple-300">"Process"</strong> to start compression</li>
                 <li>View the character frequency analysis and Huffman codes generated</li>
-                <li>Click <strong className="text-purple-300">"Download"</strong> to save the compressed .huff file</li>
+                <li>Click <strong className="text-purple-300">"Download"</strong> to save the compressed .bin file</li>
               </ol>
             </section>
 
@@ -189,7 +189,7 @@ export function MenuBar({
               </h3>
               <ol className="list-decimal list-inside space-y-2 ml-2 text-gray-200">
                 <li>Select <strong className="text-purple-300">"Decode"</strong> mode from the mode selector</li>
-                <li>Click <strong className="text-purple-300">"Select Input File"</strong> and choose a .huff file</li>
+                <li>Click <strong className="text-purple-300">"Select Input File"</strong> and choose a .bin file</li>
                 <li>Click <strong className="text-purple-300">"Process"</strong> to start decompression</li>
                 <li>Click <strong className="text-purple-300">"Download"</strong> to save the decompressed text file</li>
               </ol>
@@ -416,7 +416,7 @@ export function MenuBar({
                 <input
                   type="file"
                   multiple
-                  accept=".txt,.md,.html,.css,.js,.json,.xml,.csv,.huff"
+                  accept=".txt,.md,.html,.css,.js,.json,.xml,.csv,.bin"
                   className="hidden"
                   id="batch-file-input"
                   onChange={(e) => {
@@ -429,7 +429,7 @@ export function MenuBar({
                 <label htmlFor="batch-file-input" className="cursor-pointer">
                   <FileStack className="w-12 h-12 text-purple-400 mx-auto mb-4" />
                   <p className="text-white font-medium mb-2">Drop files here or click to browse</p>
-                  <p className="text-sm text-gray-400">Supports: .txt, .md, .html, .css, .js, .json, .xml, .csv, .huff</p>
+                  <p className="text-sm text-gray-400">Supports: .txt, .md, .html, .css, .js, .json, .xml, .csv, .bin</p>
                 </label>
               </div>
             </section>

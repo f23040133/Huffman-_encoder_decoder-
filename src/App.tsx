@@ -81,25 +81,11 @@ function App() {
   }, [lastEncodedData, addLog]);
 
   const handleLoadSampleText = useCallback(() => {
-    const sampleText = `Hello, World! This is a sample text for Huffman encoding demonstration.
-
-Huffman coding is a lossless data compression algorithm. The idea is to assign variable-length codes to input characters, with shorter codes assigned to more frequent characters.
-
-This sample contains various characters:
-- Letters: ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz
-- Numbers: 0123456789
-- Special: !@#$%^&*()_+-=[]{}|;':",./<>?
-
-The quick brown fox jumps over the lazy dog.
-Pack my box with five dozen liquor jugs.
-
-你好世界！这是一个测试文本。
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.`;
+    const sampleText = `Hello I am Myan`;
 
     setInputContent(sampleText);
     setInputFile(new File([sampleText], 'sample_text.txt', { type: 'text/plain' }));
-    setOutputFileName('sample_text.txt.huff');
+    setOutputFileName('sample_text.txt.bin');
     setStatus('ready');
     addLog('📝 Sample text loaded successfully! Click "Start Processing" to encode.', 'success');
   }, [addLog]);
@@ -111,11 +97,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.`;
     if (mode === 'encode') {
       const text = await file.text();
       setInputContent(text);
-      setOutputFileName(file.name + '.huff');
+      setOutputFileName(file.name + '.bin');
     } else {
       const buffer = await file.arrayBuffer();
       setEncodedData(new Uint8Array(buffer));
-      setOutputFileName(file.name.replace('.huff', '.txt'));
+      setOutputFileName(file.name.replace('.bin', '.txt'));
     }
     setStatus('ready');
   }, [mode, addLog]);
@@ -192,7 +178,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.`;
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = outputFileName || 'encoded.huff';
+      link.download = outputFileName || 'encoded.bin';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -376,7 +362,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.`;
       <input
         id="file-input"
         type="file"
-        accept={mode === 'encode' ? '.txt,.md,.html,.css,.js,.json,.xml,.csv' : '.huff'}
+        accept={mode === 'encode' ? '.txt,.md,.html,.css,.js,.json,.xml,.csv' : '.bin'}
         onChange={(e) => {
           const file = e.target.files?.[0];
           if (file) handleInputFileSelect(file);

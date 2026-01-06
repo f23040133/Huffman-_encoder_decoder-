@@ -155,7 +155,7 @@ export function FileSelection({
                 {getBinaryDisplay()}
               </code>
             ) : (
-              <span className="text-gray-500 italic">No encoded data loaded. Load previous encoded data or select a .huff file below.</span>
+              <span className="text-gray-500 italic">No encoded data loaded. Load previous encoded data or select a .bin file below.</span>
             )}
           </div>
           
@@ -205,7 +205,7 @@ export function FileSelection({
           {mode === 'encode' ? 'Or drag and drop a file here' : 'Drag and drop a file here, or click Browse below'}
         </p>
         <p className="text-xs mt-1 text-gray-500">
-          {mode === 'encode' ? 'Accepts: .txt, .md, .html, .css, .js, .json, .xml, .csv' : 'Accepts: .huff files only'}
+          {mode === 'encode' ? 'Accepts: .txt, .md, .html, .css, .js, .json, .xml, .csv' : 'Accepts: .bin files only'}
         </p>
       </div>
 
@@ -232,7 +232,7 @@ export function FileSelection({
             Browse...
             <input
               type="file"
-              accept={mode === 'encode' ? '.txt,.md,.html,.css,.js,.json,.xml,.csv' : '.huff'}
+              accept={mode === 'encode' ? '.txt,.md,.html,.css,.js,.json,.xml,.csv' : '.bin'}
               onChange={(e) => {
                 const file = e.target.files?.[0];
                 if (file) onInputFileSelect(file);
@@ -248,7 +248,7 @@ export function FileSelection({
             type="text"
             value={outputFileName}
             onChange={(e) => onOutputFileNameChange(e.target.value)}
-            placeholder={mode === 'encode' ? 'output.huff' : 'decoded.txt'}
+            placeholder={mode === 'encode' ? 'output.bin' : 'decoded.txt'}
             className="flex-1 px-3 py-2 rounded-lg border text-sm bg-white/5 border-white/10 text-gray-200 placeholder-gray-500"
           />
           <button className="px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium transition-all glass-button text-gray-300 hover:text-white">
